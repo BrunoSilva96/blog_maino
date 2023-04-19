@@ -50,6 +50,9 @@ Rails.application.configure do
   # Raise exceptions for disallowed deprecations.
   config.active_support.disallowed_deprecation = :raise
 
+  config.i18n.available_locales = ['pt-BR', :en]  
+  config.i18n.default_locale = 'pt-BR'
+
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
 
