@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'welcome/index'
-  get 'inicio', to: 'welcome#index'
-
-  root to: 'welcome#index'
+  root to: 'posts#index'
   devise_for :users do
-  get '/users/sign_out' => 'devise/sessions#destroy'
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   resources :authors

@@ -11,6 +11,20 @@
   </head>
 
   <body>
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <div class="navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Início", posts_path, :class => "nav-link active"%> 
+        </li>
+      </ul>
+      <%= link_to "Registrar", new_user_registration_path, :class => 'btn btn-outline-light m-2 p-1'  %> 
+      <%= link_to "Fazer Login", new_user_session_path, :class => 'btn btn-outline-light p-1'  %>
+    </div>
+  </div>
+  </nav>
+
     <%= yield %>
   </body>
 
@@ -21,10 +35,7 @@
         <% if user_signed_in? %>
           Logged in as <strong><%= current_user.email %></strong>.
           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-        <% else %>
-          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>      
         <% end %>
       </p>
     </div>

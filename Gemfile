@@ -18,7 +18,7 @@ gem 'puma', '~> 5.0'
 
 gem 'importmap-rails'
 
-gem 'turbo-rails'
+gem 'turbo-rails', '~> 1.0.0'
 
 gem 'stimulus-rails'
 
@@ -29,6 +29,10 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', require: false
 gem 'rubocop', '~> 1.50', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem 'bootstrap'
+gem 'cssbundling-rails', '~> 1.1'
+gem 'jquery-rails'
 
 gem 'rails-i18n', '~> 7.0.0'
 
@@ -45,3 +49,5 @@ end
 group :development do
   gem 'web-console'
 end
+
+gem 'cssbundling-rails', '~> 1.1'
