@@ -1,5 +1,21 @@
-<%=@posts.each do |post|%>
- <%post.author%>
-
- <%post.body%>
-<%end%>
+<div class="container mt-5">
+  <div class="row align-itemsnter">
+    <div class="col-md-4 mx-auto col-lg-10">
+        <div class="col-md-6 p-md-4 offset-md-3 border rounded-3">
+            <h4>O que você está pensando?</h4>
+          <div class="input-group mb-3">
+            <button class="btn btn-outline-primary" type="button" id="button-addon1">Publicar</button>
+            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+          </div>
+            <% @posts.each do |post| %>
+        </div>
+        <div class="card mt-5">
+          <div class="card-header">Publicado por: <%= post.author.nickname %></div>
+            <div class="card-body">
+              <p class="card-text"><%= post.body %></p>
+            </div>
+            <%end%>
+        </div>
+    </div>
+  </div>
+</div>
