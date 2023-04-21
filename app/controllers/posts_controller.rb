@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :load_post, only: %i[update show destroy]
 
   def index
-    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(3)
+    @posts = Post.includes(:comment).order(created_at: :desc).page(params[:page]).per(3)
   end
 
   def create

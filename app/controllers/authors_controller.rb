@@ -9,6 +9,7 @@ class AuthorsController < ApplicationController
 
   def create
     @author = Author.new
+
     @author.attributes = author_params
 
     @author.save!
@@ -33,6 +34,7 @@ class AuthorsController < ApplicationController
   def author_params
     return {} unless params.key?(:author)
 
-    params.require(:author).permit(:nickname)
+    binding.pry
+    params.require(:author).permit(:email, :nickname)
   end
 end

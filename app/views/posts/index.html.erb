@@ -1,24 +1,29 @@
 <div class="container mt-5">
-  <div class="row align-items-cennter">
-    <div class="col-md-4 mx-auto col-lg-10">
-        <div class="col-md-6 p-md-4 offset-md-3 border rounded-3">
-            <h4>O que você está pensando?</h4>
-          <div class="input-group mb-3">
-            <button class="btn btn-outline-primary" type="button" id="button-addon1">Publicar</button>
-            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-          </div>
-            <% @posts.each do |post| %>
+  <div class="col-md-4 mx-auto col-lg-10">
+    <div class="row align-items-cennter">
+      <div class="col-md-6 p-md-4 offset-md-3 border rounded-3">
+      <h4>O que você está pensando?</h4>
+      <%= form_with model: @post, url: posts_path do |form|  %>
+        <div class="input-group mb-3">
+          <%= form.text_area :body, class: "form-control", aria_describedby: "button-addon1" %>
         </div>
-        <div class="card mt-5">
-          <div class="card-header">Publicado por: <%= post.author.nickname %></div>
-            <div class="card-body">
-              <p class="card-text"><%= post.body %></p>
-            </div>
-            <%end%>
-        </div>
+        <%= form.submit "Publicar", class: "btn btn-outline-primary mb-2", id: "button-addon1" %>
+      <% end %>
     </div>
   </div>
+
+    <% @posts.each do |post| %>
+    <div class="card mt-5">
+      <div class="card-header">Publicado por: <%= post.author.nickname %></div>
+        <div class="card-body">
+          <p class="card-text"><%= post.body %></p>
+          <%= link_to 'Ver Comentarios', comments_path %>
+        </div>
+      </div>
+    <%end%>
+  </div>
 </div>
+
 <div class="pagination justify-content-center mt-5">
   <%= paginate @posts%>
 </div>

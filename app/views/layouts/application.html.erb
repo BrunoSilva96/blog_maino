@@ -20,8 +20,8 @@
         </li>
       </ul>
         <h4 class="me-auto">Blog Mainô</h4>
-      <%= link_to "Registrar", new_user_registration_path, :class => 'btn btn-outline-light m-2 p-1'  %> 
-      <%= link_to "Fazer Login", new_user_session_path, :class => 'btn btn-outline-light p-1'  %>
+      <%= link_to "Registrar", new_author_registration_path, :class => 'btn btn-outline-light m-2 p-1'  %> 
+      <%= link_to "Fazer Login", new_author_session_path, :class => 'btn btn-outline-light p-1'  %>
     </div>
   </div>
   </nav>
@@ -33,10 +33,10 @@
   <div class="navbar-inner">
     <div class="container">
       <p class="navbar-text pull-right">
-        <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>      
+        <% if author_signed_in? %>
+          Logged in as <strong><%= current_author.email %></strong>.
+          <%= link_to 'Edit profile', edit_author_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_author_session_path, method: :delete, :class => 'navbar-link'  %>      
         <% end %>
       </p>
     </div>

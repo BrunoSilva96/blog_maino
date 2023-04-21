@@ -8,6 +8,17 @@ Rails.application.configure do
   # Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # Mailtrap Config
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: 'f3e12c3920b3f6',
+    password: '10074146ba43d2',
+    address: 'sandbox.smtp.mailtrap.io',
+    domain: 'sandbox.smtp.mailtrap.io',
+    port: '2525',
+    authentication: :cram_md5
+  }
+
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -54,6 +65,17 @@ Rails.application.configure do
 
   config.i18n.available_locales = ['pt-BR', :en]
   config.i18n.default_locale = 'pt-BR'
+
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.gmail.com',
+  #   port: 587,
+  #   user_name: ENV['blogmaino@gmail.com'],
+  #   password: ENV[''],
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true
+  # }
+  # config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
