@@ -1,0 +1,36 @@
+<div class="card mt-5 col-md-4 mx-auto col-lg-9">
+  <div class="card-header">
+    <p> Publicado por: <%= @post.author.nickname %> </p>
+  </div>
+  <div class="card-body">
+    <p class="card-text"> <%= @post.body %> </p>
+  </div>
+</div>
+
+<div class="card mt-5 mx-auto col-lg-3 mb-3">
+  <div class="card-header text-center">
+    <h4>Comentários</h4>
+  </div>
+</div>
+
+<div class="col-md-6 p-md-3 offset-md-3">
+  <% @post.comments.each do |comment| %>
+    <div class="card">
+      <div class="card-header">Comentado por: <%= comment.author&.nickname || "Anônimo" %></div>
+        <div class="card-body">
+          <p class="card-text"><%= comment.note %></p>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<div class="col-md-6 p-md-3 offset-md-3">
+  <h4>O que você deseja comentar?</h4>
+  <%= form_with model: @post.comments.new do |form|  %>
+    <div class="input-group mb-3">
+      <%= form.hidden_field :post_id, value: @post.id %>
+      <%= form.text_area :note, class: "form-control", aria_describedby: "button-addon1" %>
+    </div>
+    <%= form.submit "Comentar", class: "btn btn-outline-primary mb-2", id: "button-addon1" %>
+  <% end %>
+</div>

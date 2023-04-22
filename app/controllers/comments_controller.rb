@@ -8,9 +8,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new
-    @comment.attributes = comment_params
-    @comment.save!
+    @comment = Comment.new(comment_params.merge(author_id: current_author&.id))
+    redirect_to @comment.post if @comment.save
   end
 
   def update
@@ -29,6 +28,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:note)
+    params.require(:comment).permit(:note, :post_id)
   end
 end
