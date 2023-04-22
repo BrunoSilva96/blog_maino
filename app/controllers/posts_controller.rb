@@ -10,8 +10,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new
     @post.attributes = post_params
-
-    @post.save!
+    @post.author_id = current_author.id
+    redirect_to '/posts' if @post.save!
   end
 
   def show; end
@@ -32,8 +32,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    return {} unless params.key?(:post)
-
-    params.require(:post).permit(:body)
+    params.permit(:body)
   end
 end

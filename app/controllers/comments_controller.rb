@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new
     @comment.attributes = comment_params
-
     @comment.save!
   end
 
@@ -30,8 +29,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    return {} unless params.key?(:comment)
-
     params.require(:comment).permit(:note)
   end
 end

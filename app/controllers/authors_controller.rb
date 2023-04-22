@@ -3,18 +3,6 @@
 class AuthorsController < ApplicationController
   before_action :load_author, only: %i[update destroy]
 
-  def index
-    @authors = Author.all
-  end
-
-  def create
-    @author = Author.new
-
-    @author.attributes = author_params
-
-    @author.save!
-  end
-
   def update
     @author = Author.find(params[:id])
     @author.attributes = author_params
@@ -32,9 +20,6 @@ class AuthorsController < ApplicationController
   end
 
   def author_params
-    return {} unless params.key?(:author)
-
-    binding.pry
     params.require(:author).permit(:email, :nickname)
   end
 end
