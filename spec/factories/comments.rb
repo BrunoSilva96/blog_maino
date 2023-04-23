@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :comment do
-    note { 'MyText' }
-    author { nil }
-    post { nil }
+    note { Faker::Lorem.paragraph }
+    author
+    post
   end
 end

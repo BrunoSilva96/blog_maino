@@ -3,7 +3,8 @@
 FactoryBot.define do
   factory :author do
     nickname { Faker::Name.unique.name }
-    post
-    comments
+    email { Faker::Internet.email }
+    password { '123456' }
+    password_confirmation { '123456' }
   end
 end

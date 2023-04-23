@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :load_post, only: %i[update show destroy edit]
+  before_action :load_post, only: %i[update destroy edit]
 
   def index
     @posts = Post.includes(:comments).order(created_at: :desc).page(params[:page]).per(3)
@@ -13,7 +13,9 @@ class PostsController < ApplicationController
     redirect_to posts_path if @post.save
   end
 
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+  end
 
   def edit; end
 
@@ -29,7 +31,7 @@ class PostsController < ApplicationController
   private
 
   def load_post
-    @post = Post.find(params[:id])
+    @post = current_author.posts.find(params[:id])
   end
 
   def post_params_update

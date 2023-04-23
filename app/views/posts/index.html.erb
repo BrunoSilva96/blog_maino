@@ -17,17 +17,17 @@
 <% @posts.each do |post| %>
   <div class="card mt-5 col-md-4 mx-auto col-lg-6">
     <div class="card-header">Publicado por: <%= post.author.nickname %></div>
-      <div class="card-body">
-        <p class="card-text"><%= post.body %></p>
-          <%= link_to 'Ver Comentarios', post, class: "btn btn-dark" %>
-        <div class="d-grid gap-1 d-md-flex justify-content-md-end">
-        <% if author_signed_in?%>
+    <div class="card-body">
+      <p class="card-text"><%= post.body %></p>
+        <%= link_to 'Ver Comentarios', post, class: "btn btn-dark" %>
+      <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+        <% if author_post_delete?(post, current_author) %>
           <%= button_to 'Deletar', post_path(post.id), method: :delete, class: "btn btn-outline-danger" %>
           <%= link_to 'Editar', edit_post_path(post.id), method: :post, class: "btn btn-outline-success" %>
         <% end %>
-        </div>
       </div>
     </div>
+  </div>
 <% end %>
 
 <div class="pagination justify-content-center mt-5">
