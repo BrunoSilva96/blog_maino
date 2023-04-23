@@ -19,19 +19,19 @@
           <%= link_to "Início", posts_path, :class => "nav-link active"%> 
         </li>
       </ul>
-        <h4 class="me-auto">Blog Mainô</h4>
-        <% if author_signed_in?%>
-          <%= link_to 'Edit profile', edit_author_registration_path, :class => 'btn btn-outline-light m-2 p-1' %> 
-          <%= link_to "Logout", destroy_author_session_path, method: :delete, :class => 'btn btn-outline-light p-1'  %> 
-        <% else %>
-          <%= link_to "Registrar", new_author_registration_path, :class => 'btn btn-outline-light m-2 p-1'  %> 
-          <%= link_to "Fazer Login", new_author_session_path, :class => 'btn btn-outline-light p-1'  %>
-        <% end %>
+      <h4 class="me-auto">Blog Mainô</h4>
+      <% if author_signed_in?%>
+        <%= current_author.nickname %>
+        <%= link_to 'Edit profile', edit_author_registration_path, :class => 'btn btn-outline-light m-2 p-1' %> 
+        <%= link_to "Logout", destroy_author_session_path, method: :delete, :class => 'btn btn-outline-light p-1'  %> 
+      <% else %>
+        <%= link_to "Registrar", new_author_registration_path, :class => 'btn btn-outline-light m-2 p-1'  %> 
+        <%= link_to "Fazer Login", new_author_session_path, :class => 'btn btn-outline-light p-1'  %>
+      <% end %>
     </div>
   </div>
   </nav>
-
-    <%= yield %>
+  <%= yield %>
   </body>
 </html>
 
