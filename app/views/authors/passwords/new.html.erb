@@ -3,7 +3,7 @@
     <div class="col-md-4 mx-auto col-lg-5 mt-5">
       <div class="p-4 p-md-5 border rounded-3 bg-ligth">
 
-      <h2>Esqueceu sua senha?</h2>
+      <h2><%= t('devise.passwords.new.forgot_your_password') %></h2>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= render "authors/shared/error_messages", resource: resource %>
@@ -14,7 +14,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "Enviar instruções para mudança da senha", class:"btn btn-primary mt-3" %>
+          <%= f.submit t('devise.passwords.new.send_me_reset_password_instructions'), class:"btn btn-primary mt-3" %>
         </div>
       <% end %>
 

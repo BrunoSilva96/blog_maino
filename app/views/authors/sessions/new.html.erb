@@ -3,7 +3,7 @@
     <div class="col-md-4 mx-auto col-lg-5 mt-5">
       <div class="p-4 p-md-5 border rounded-3 bg-ligth">
 
-      <h2>Fazer Login</h2>
+      <h2><%= t('devise.sessions.new.sign_in') %></h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group">
@@ -24,7 +24,7 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Conectar-se", class: "btn btn-primary" %>
+          <%= f.submit t("devise.sessions.new.sign_in"), class: "btn btn-primary" %>
         </div>
       <% end %>
 
