@@ -10,21 +10,15 @@ gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 # Auth
 gem 'devise'
 
-gem 'sprockets-rails'
-
-gem 'pg', '~> 1.1'
-
-gem 'puma', '~> 5.0'
-
 gem 'importmap-rails'
-
-gem 'turbo-rails', '~> 1.0.0'
-
-gem 'stimulus-rails'
-
 gem 'jbuilder'
-
+gem 'mail'
+gem 'pg', '~> 1.1'
+gem 'puma', '~> 5.0'
 gem 'redis', '~> 4.0'
+gem 'sprockets-rails'
+gem 'stimulus-rails'
+gem 'turbo-rails', '~> 1.0.0'
 
 gem 'bootsnap', require: false
 gem 'rubocop', '~> 1.50', require: false
@@ -34,7 +28,7 @@ gem 'bootstrap'
 gem 'cssbundling-rails', '~> 1.1'
 gem 'jquery-rails'
 gem 'kaminari'
-gem "sidekiq", '~> 6.1.3'
+gem 'sidekiq', '~> 6.1.3'
 
 gem 'rails-i18n', '~> 7.0.0'
 

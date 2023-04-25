@@ -6,7 +6,7 @@ FactoryBot.define do
     author
 
     trait :with_comments do
-      comments { create(:comment) }
+      comments { create(:comment, :with_comments) }
     end
   end
 end

@@ -4,6 +4,11 @@ pt-BR:
     sign_out: Sair
     sign_in: Registrar-se
     register_account: Registrar conta
+    kaminari:
+      first: Primeira
+      last: Última
+      next: Próxima
+      previous: Anterior
   models:
     nickname: Apelido
     see_comments: Ver Comentários

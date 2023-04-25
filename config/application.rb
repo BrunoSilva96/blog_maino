@@ -29,6 +29,15 @@ module BlogMaino
 
     config.active_job.queue_adapter = :sidekiq
 
+    config.before_configuration do
+      env_file = File.join(Rails.root, 'config', 'env.yml')
+      if File.exist?(env_file)
+        YAML.load(File.open(env_file)).each do |key, value|
+          ENV[key.to_s] = value
+        end
+      end
+    end
+
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

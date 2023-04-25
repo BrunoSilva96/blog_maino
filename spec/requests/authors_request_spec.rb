@@ -3,14 +3,20 @@
 require 'rails_helper'
 
 RSpec.describe 'Authors', type: :request do
-  # let(:user) { create(:user) }
+  describe 'validations' do
+    it 'is valid with valid attributes' do
+      author = build(:author)
+      expect(author).to be_valid
+    end
 
-  # context "GET /authors" do
-  #   let(:url) { "/users/authors" }
-  #   let!(:authors) { create_list(:author, 5) }
+    it 'is not valid without a name' do
+      author = build(:author, nickname: nil)
+      expect(author).not_to be_valid
+    end
 
-  #   it "return all Authors" do
-  #     get url, headers: :user
-  #   end
-  # end
+    it 'is not valid without an email' do
+      author = build(:author, email: nil)
+      expect(author).not_to be_valid
+    end
+  end
 end
